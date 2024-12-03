@@ -18,7 +18,7 @@ export default function About() {
         </Link>
 
         <Text className="text-white font-bold mb-8 text-2xl">
-          Sobre el proyecto
+          React Native Imperiale Juan Pablo
         </Text>
 
         <Text className="text-white text-white/90 mb-4">
