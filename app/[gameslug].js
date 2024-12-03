@@ -24,7 +24,7 @@ export default function Detail() {
           headerStyle: { backgroundColor: "grey" },
           headerTintColor: "white",
           headerLeft: () => {},
-          headerTitle: "The Legend of Zelda: Breath of the Wild",
+          headerTitle: "Game Info",
           headerRight: () => {},
         }}
       />
