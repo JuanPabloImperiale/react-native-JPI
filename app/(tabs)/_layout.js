@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 
-import { HomeIcon, InfoIcon } from "../../components/Icons";
+import { HomeIcon, InfoIcon, DevIcon } from "../../components/Icons";
 import { useEffect } from "react";
 import { check } from "prettier";
 
@@ -25,6 +25,13 @@ export default function TabsLayout() {
         options={{
           title: "About",
           tabBarIcon: ({ color }) => <InfoIcon color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="web-developer"
+        options={{
+          title: "WebDeveloper",
+          tabBarIcon: ({ color }) => <DevIcon color={color} />,
         }}
       />
     </Tabs>

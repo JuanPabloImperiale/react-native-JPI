@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   score: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "green",
+    color: "yellow",
     marginBottom: 10,
   },
 });
