@@ -1,17 +1,32 @@
 import { useEffect, useRef } from "react";
-import { View, StyleSheet, Text, Image, Animated } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  Animated,
+  Pressable,
+} from "react-native";
+import { Score } from "./Score";
+import { Link } from "expo-router";
+import { styled } from "nativewind";
+
+const StyledPressable = styled(Pressable);
 
 export function GameCard({ game }) {
   return (
-    <View key={game.id} style={styles.card}>
-      <View style={styles.row}>
-        <Image source={{ uri: game.image }} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>{game.name}</Text>
-          <Text style={styles.score}>{game.released}</Text>
+    <Link href={`/${game.id}`} asChild>
+      <StyledPressable className="active:opacity-70 border border-black active:border-white/50 mb-2 bg-gray-500/10 rounded-xl p-4">
+        <View className="flex-row gap-4" key={game.slug}>
+          <Image source={{ uri: game.image }} style={styles.image} />
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>{game.name}</Text>
+            <Text style={styles.score}>{game.released}</Text>
+            <Score score={game.rating} maxScore={game.rating_top} />
+          </View>
         </View>
-      </View>
-    </View>
+      </StyledPressable>
+    </Link>
   );
 }
 
@@ -38,24 +53,16 @@ const styles = StyleSheet.create({
   card: {
     marginBottom: 42,
   },
-  row: {
-    flexDirection: "row",
-    width: 500,
-  },
   image: {
     width: 107,
     height: 147,
     borderRadius: 10,
   },
-  textContainer: {
-    marginLeft: 16,
-    flex: 1,
-  },
   title: {
     fontSize: 20,
     fontWeight: "bold",
     color: "#fff",
-    width: 300,
+    marginTop: 10,
   },
   description: {
     fontSize: 16,
@@ -65,6 +72,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     color: "green",
-    marginTop: 8,
+    marginBottom: 10,
   },
 });
